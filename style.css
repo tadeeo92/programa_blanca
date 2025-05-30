@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f0f8ff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.juego-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.panel-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background-color: #dbeafe;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+#temporizador {
+  position: relative;
+  width: 150px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#barra-tiempo {
+  height: 100%;
+  width: 100%;
+  background-color: #4ade80;
+  transition: width 1s linear;
+}
+
+#tiempo-texto {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: black;
+}
+
+.zona-juego {
+  display: flex;
+  flex: 1;
+  margin-top: 10px;
+  gap: 20px;
+  overflow: hidden;
+}
+
+#zona-figuras {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 10px;
+  overflow-y: auto;
+  background: #fef9c3;
+  padding: 10px;
+  border-radius: 8px;
+  height: 100%;
+}
+
+#zonas-clasificacion {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #e0f2fe;
+  padding: 10px;
+  border-radius: 8px;
+  align-content: flex-start;
+  height: 100%;
+}
+
+.figura {
+  width: 60px;
+  height: 60px;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  background: red;
+  cursor: grab;
+}
+
+.zona {
+  flex: 1 0 30%;
+  min-height: 60px;
+  background: #dbeafe;
+  border: 2px dashed #60a5fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+}
+
+.zona.over {
+  background-color: #bae6fd;
+}
+
+#mensaje {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#reiniciar {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  background-color: #60a5fa;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}

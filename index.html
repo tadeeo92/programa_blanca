@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clasifica las Figuras</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="juego-container">
+    <div class="panel-info">
+      <div id="score">Aciertos: 0</div>
+      <div id="nivel">Nivel: 1</div>
+      <div id="vidas">❤️❤️</div>
+      <div id="mejor-puntaje">Mejor: 0</div>
+      <div id="temporizador">
+        <div id="barra-tiempo"></div>
+        <span id="tiempo-texto">60</span>
+      </div>
+    </div>
+
+    <div class="zona-juego">
+      <div id="zona-figuras"></div>
+      <div id="zonas-clasificacion"></div>
+    </div>
+
+    <div id="mensaje"></div>
+    <button id="reiniciar">🔁 Reiniciar</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
