@@ -1,132 +1,179 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: #f0f8ff;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.juego-container {
-  width: 100vw;
-  height: 100vh;
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f8ff;
+  text-align: center;
+  padding: 10px;
+  min-height: 100vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.panel-info {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  background-color: #dbeafe;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 1.1rem;
 }
 
-#temporizador {
-  position: relative;
-  width: 150px;
-  height: 20px;
-  background: #ccc;
-  border-radius: 10px;
-  overflow: hidden;
+h1 {
+  font-size: 1.8em;
+  margin: 10px 0;
+}
+
+.info-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#timer {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  width: 100%;
+  max-width: 600px;
 }
 
 #barra-tiempo {
-  height: 100%;
   width: 100%;
-  background-color: #4ade80;
+  height: 12px;
+  background: #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+#barra-tiempo > div {
+  height: 100%;
+  background: #4caf50;
   transition: width 1s linear;
 }
 
-#tiempo-texto {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: black;
+#mensaje {
+  margin: 15px 0;
+  font-size: 1.3em;
+  min-height: 30px;
+  color: #333;
 }
 
-.zona-juego {
-  display: flex;
-  flex: 1;
-  margin-top: 10px;
-  gap: 20px;
-  overflow: hidden;
+#reiniciarBtn {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 #zona-figuras {
-  flex: 1;
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
-  gap: 10px;
-  overflow-y: auto;
-  background: #fef9c3;
-  padding: 10px;
-  border-radius: 8px;
-  height: 100%;
-}
-
-#zonas-clasificacion {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  background: #e0f2fe;
-  padding: 10px;
-  border-radius: 8px;
-  align-content: flex-start;
-  height: 100%;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
+  min-height: 150px;
 }
 
 .figura {
   width: 60px;
   height: 60px;
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  background: red;
+  border-radius: 8px;
   cursor: grab;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.figura:active {
+  cursor: grabbing;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Figuras geométricas */
+.triangulo {
+  clip-path: polygon(50% 5%, 5% 95%, 95% 95%);
+}
+
+.cuadrado {}
+
+.pentagono {
+  clip-path: polygon(50% 0%, 90% 35%, 73% 90%, 27% 90%, 10% 35%);
+}
+
+.hexagono {
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+.heptagono {
+  clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 80% 85%, 50% 100%, 20% 85%, 0% 50%);
+}
+
+.octagono {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.decano {
+  clip-path: polygon(
+    50% 0%, 81% 10%, 100% 38%, 95% 71%, 70% 95%, 30% 95%, 5% 71%, 0% 38%, 19% 10%, 50% 0%
+  );
+}
+
+.icosagono {
+  clip-path: polygon(
+    50% 0%, 63% 5%, 75% 15%, 84% 29%, 90% 45%, 90% 55%, 84% 71%, 75% 85%, 63% 95%, 50% 100%, 
+    37% 95%, 25% 85%, 16% 71%, 10% 55%, 10% 45%, 16% 29%, 25% 15%, 37% 5%
+  );
+}
+
+.circulo {
+  border-radius: 50%;
+}
+
+#zonas-clasificacion {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
 }
 
 .zona {
-  flex: 1 0 30%;
-  min-height: 60px;
-  background: #dbeafe;
-  border: 2px dashed #60a5fa;
+  flex: 1 0 130px;
+  max-width: 150px;
+  border: 3px dashed #888;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
+  min-height: 90px;
   font-weight: bold;
-  text-align: center;
+  font-size: 1em;
+  color: #555;
+  transition: background-color 0.3s ease;
+  user-select: none;
 }
 
 .zona.over {
-  background-color: #bae6fd;
+  background-color: #cde4ff;
+  border-color: #2e8bff;
 }
 
-#mensaje {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-}
+/* Responsive ajustes */
+@media (max-width: 600px) {
+  .figura {
+    width: 50px;
+    height: 50px;
+  }
 
-#reiniciar {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  background-color: #60a5fa;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
+  .zona {
+    flex: 1 0 100px;
+    font-size: 0.9em;
+  }
+
+  h1 {
+    font-size: 1.4em;
+  }
+
+  #reiniciarBtn {
+    padding: 8px 15px;
+  }
 }
